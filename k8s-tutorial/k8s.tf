@@ -24,7 +24,7 @@ resource "kubernetes_deployment" "kubernetes-bootcamp" {
       spec {
         container {
           name  = "kubernetes-bootcamp"
-          image = "gcr.io/google-samples/kubernetes-bootcamp:v1"
+          image = "docker.io/jocatalin/kubernetes-bootcamp:v2"
         }
       }
     }
