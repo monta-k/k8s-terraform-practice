@@ -1,6 +1,6 @@
 resource "kubernetes_deployment" "kubernetes-bootcamp" {
   metadata {
-    name = "kubernetes-bootcamp"
+    name      = "kubernetes-bootcamp"
     namespace = "default"
   }
 
@@ -16,14 +16,14 @@ resource "kubernetes_deployment" "kubernetes-bootcamp" {
     template {
       metadata {
         labels = {
-          app = "kubernetes-bootcamp"
+          app     = "kubernetes-bootcamp"
           version = "v1"
         }
       }
 
       spec {
         container {
-          name = "kubernetes-bootcamp"
+          name  = "kubernetes-bootcamp"
           image = "gcr.io/google-samples/kubernetes-bootcamp:v1"
         }
       }
@@ -33,7 +33,7 @@ resource "kubernetes_deployment" "kubernetes-bootcamp" {
 
 resource "kubernetes_service" "kubernetes-bootcamp" {
   metadata {
-    name = "kubernetes-bootcamp"
+    name      = "kubernetes-bootcamp"
     namespace = "default"
   }
 
@@ -43,7 +43,7 @@ resource "kubernetes_service" "kubernetes-bootcamp" {
     }
 
     port {
-      port = 8080
+      port        = 8080
       target_port = 8080
     }
 
