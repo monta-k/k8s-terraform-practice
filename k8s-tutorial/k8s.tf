@@ -5,7 +5,7 @@ resource "kubernetes_deployment" "kubernetes-bootcamp" {
   }
 
   spec {
-    replicas = 1
+    replicas = 2
 
     selector {
       match_labels = {
