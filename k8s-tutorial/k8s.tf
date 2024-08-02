@@ -17,6 +17,7 @@ resource "kubernetes_deployment" "kubernetes-bootcamp" {
       metadata {
         labels = {
           app = "kubernetes-bootcamp"
+          version = "v1"
         }
       }
 
@@ -27,5 +28,25 @@ resource "kubernetes_deployment" "kubernetes-bootcamp" {
         }
       }
     }
+  }
+}
+
+resource "kubernetes_service" "kubernetes-bootcamp" {
+  metadata {
+    name = "kubernetes-bootcamp"
+    namespace = "default"
+  }
+
+  spec {
+    selector = {
+      app = "kubernetes-bootcamp"
+    }
+
+    port {
+      port = 8080
+      target_port = 8080
+    }
+
+    type = "NodePort"
   }
 }
